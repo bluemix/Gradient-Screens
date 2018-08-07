@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_buttons/utils.dart';
+import 'package:gradient_buttons/wavy_clipper.dart';
 
 void main() => runApp(new MyApp());
 
@@ -10,6 +12,10 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
+      builder: (BuildContext context, Widget child) {
+        return appDirectionality(child);
+      },
+      debugShowCheckedModeBanner: false,
       home: new MyHomePage(title: 'Gradient Buttons'),
     );
   }
@@ -25,104 +31,178 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  buildBackground() {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        Container(
+          decoration: gradientBack(),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child: Center(),
+            ),
+            Expanded(
+                flex: 1,
+                child: Stack(
+                  fit: StackFit.loose,
+                  children: <Widget>[
+                    ClipPath(
+                      clipper: BottomWaveClipper(),
+                      child: new Container(
+                        // height: height * 0.25,
+                        // width: width * 1.0,
+                        padding: const EdgeInsets.all(20.0),
+                        decoration: new BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: const <Color>[
+                              Color(
+                                  0xffF55B9A), // <color name="bleu_de_france">#388DE3</color>
+                              Color(
+                                  0xffF9B16E), // <color name="summer_sky">#2BB2DF</color>
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ],
+        )
+      ],
+    );
+  }
+
+  BoxDecoration gradientBack() {
+    return const BoxDecoration(
+      gradient: const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomCenter,
+        colors: const <Color>[
+          Color(0xff2596B3), // <color name="pelorous">#2596B3</color>
+          Color(0xff5FC9E2), // <color name="viking">#5FC9E2</color>
+        ],
+      ),
+    );
+  }
+
+  BoxDecoration gradientButtonBack() {
+    return const BoxDecoration(
+      gradient: const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: const <Color>[
+          Color(0xffF55B9A), // <color name="violet_red">#F55B9A</color>
+          Color(0xffF9B16E), // <color name="rajah">#F9B16E</color>
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    BoxDecoration gradientBackDecoration() {
-      return const BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: const <Color>[
-            Color(0xffF55B9A), // <color name="violet_red">#F55B9A</color>
-            Color(0xffF9B16E), // <color name="rajah">#F9B16E</color>
-          ],
-        ),
-      );
-    }
-final ThemeData theme = Theme.of(context);
+    final ThemeData theme = Theme.of(context);
     final ButtonThemeData buttonTheme =
         ButtonTheme.of(context).copyWith(padding: const EdgeInsets.all(0.0));
+    
+    final Shader linearGradient = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomCenter,
+      colors: <Color>[
+        Color(0xfff20BDFF),
+        Color(0xffA5FECB),
+      ],
+    ).createShader(Rect.fromLTWH(0.0, 0.0, 1000.0, 100.0));
+    
+    final Shader linearGradient2 = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomCenter,
+      colors: <Color>[
+        Color(0xaaE8E8E8),
+        Color(0xffE8E8E8),
+      ],
+    ).createShader(Rect.fromLTWH(0.0, 0.0, 1000.0, 100.0));
 
     Widget gradientContainer(double incHeightBy, Widget child) => new Container(
           height: buttonTheme.height + incHeightBy,
           width: buttonTheme.minWidth,
-          decoration: gradientBackDecoration(),
+          decoration: gradientButtonBack(),
           child: Center(child: child),
         );
 
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RawMaterialButton(
-              fillColor: Colors.transparent,
-
-              padding: const EdgeInsets.all(0.0),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-              textStyle: theme.textTheme.button.copyWith(color: Colors.white),
-              onPressed: () => print('button pressed'),
-              child: gradientContainer(0.0, Text('Gradient'),),
-            ),
-            Divider(),
-            FloatingActionButton(
-              foregroundColor: Colors.white,
-              onPressed: () => print('FAB clicked'),
-              elevation: 4.0,
-              
-              child: gradientContainer(30.0, Icon(Icons.add, size: 30.0,)),
-            ),
-            // new MaterialButton(
-            //   height: 40.0,
-            //   minWidth: 70.0,
-            //   padding: buttonTheme.padding,
-            //   color: Theme.of(context).primaryColor,
-            //   textColor: Colors.white,
-            //   child: gradientContainer(),
-            //   onPressed: () => {},
-            //   splashColor: Colors.redAccent,
-            // ),
-            // RaisedButton(
-            //   color: Colors.orangeAccent,
-            //   onPressed: () => print('button pressed'),
-            //   padding: const EdgeInsets.all(0.0),
-            //   child: Container(
-            //     color: Colors.teal,
-            //     child: Padding(
-            //       padding: const EdgeInsets.all(5.0),
-            //       child: Text(
-            //         'Press me',
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // Material(
-            //   elevation: 3.0,
-            //   child: InkWell(
-            //     onTap: () => print('physical model clicked'),
-            //     highlightColor: Colors.teal,
-            //     splashColor: Colors.yellow,
-            //     radius: 15.0,
-            //     child: AnimatedPhysicalModel(
-            //       shape: BoxShape.rectangle,
-            //       elevation: 3.0,
-            //       color: Colors.lightBlueAccent,
-            //       child: Text('Animated Physical Model'),
-            //       duration: Duration(seconds: 1),
-            //       curve: Curves.fastOutSlowIn,
-            //       borderRadius: BorderRadius.zero,
-            //       shadowColor: Colors.greenAccent,
-            //     ),
-            //   ),
-            // ),
-
-          ],
+        // appBar: new AppBar(
+        //   title: new Text(widget.title),
+        // ),
+        body: Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        buildBackground(),
+        new Center(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                  'مو غالي ، شتكفيك كلمة الغالي ؛',
+                  style: new TextStyle(
+                      fontSize: 55.0,
+                      fontFamily: 'GE SS Bold',
+                      fontWeight: FontWeight.bold,
+                      foreground: Paint()..shader = linearGradient),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'يال ما جنت ع البال ، صرت إنت',
+                  style: new TextStyle(
+                      fontSize: 19.0,
+                      fontFamily: 'GE SS Light',
+                      foreground: Paint()..shader = linearGradient2),
+                ),
+              ),
+              Divider(),
+              RawMaterialButton(
+                fillColor: Colors.transparent,
+                padding: const EdgeInsets.all(0.0),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                textStyle: theme.textTheme.button.copyWith(color: Colors.white),
+                onPressed: () => print('button pressed'),
+                child: gradientContainer(
+                  0.0,
+                  Text('بالي', style: TextStyle(fontFamily: 'GE SS Light', fontSize: 18.0),),
+                ),
+              ),
+              Divider(),
+              FloatingActionButton(
+                foregroundColor: Colors.white,
+                onPressed: () => print('FAB clicked'),
+                elevation: 4.0,
+                child: gradientContainer(
+                    30.0,
+                    Icon(
+                      Icons.favorite,
+                      size: 30.0,
+                    )),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
+      ],
+    ));
   }
 }
