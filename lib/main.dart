@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_buttons/gradients.dart';
 import 'package:gradient_buttons/utils.dart';
 import 'package:gradient_buttons/wavy_clipper.dart';
 
@@ -9,9 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Gradient Buttons',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: appTheme(),
       builder: (BuildContext context, Widget child) {
         return appDirectionality(child);
       },
@@ -115,7 +114,15 @@ class _MyHomePageState extends State<MyHomePage> {
     final ThemeData theme = Theme.of(context);
     final ButtonThemeData buttonTheme =
         ButtonTheme.of(context).copyWith(padding: const EdgeInsets.all(0.0));
-    
+
+    var linearGradient3 = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomCenter,
+      colors: <Color>[
+        Color(0xfff20BDFF),
+        Color(0xffA5FECB),
+      ],
+    );
     final Shader linearGradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomCenter,
@@ -124,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Color(0xffA5FECB),
       ],
     ).createShader(Rect.fromLTWH(0.0, 0.0, 1000.0, 100.0));
-    
+
     final Shader linearGradient2 = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomCenter,
@@ -184,7 +191,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => print('button pressed'),
                 child: gradientContainer(
                   0.0,
-                  Text('بالي', style: TextStyle(fontFamily: 'GE SS Light', fontSize: 18.0),),
+                  Text(
+                    'بالي',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
                 ),
               ),
               Divider(),
@@ -199,6 +209,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       size: 30.0,
                     )),
               ),
+              Divider(),
+              CircualrGradientButton(
+                  linearGradient3,
+                  Icon(
+                    Icons.favorite,
+                    size: 30.0,
+                    color: Colors.redAccent,
+                  ),
+                  () => print(''))
             ],
           ),
         ),
