@@ -19,6 +19,14 @@ var hotLinearGradient = LinearGradient(
       Color(0xff9a8478),
     ],
   );
+  var hersheysGradientAr = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xff9a8478),
+      Color(0xfff1e130c),
+    ],
+  );
 
   var taitanumGradient = LinearGradient(
     begin: Alignment.topLeft,

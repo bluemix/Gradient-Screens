@@ -60,6 +60,12 @@ class InfoPage extends StatelessWidget {
                     TextStyle(fontSize: 40.0, fontWeight: FontWeight.w100),
                     hersheysGradient, width: 400.0, height: 100.0),
               ),
+              Text(
+                'اللي ما أعرف ترجمتها بالعربي',
+                style: gradientTextStyle(
+                    TextStyle(fontSize: 24.0, fontWeight: FontWeight.w100),
+                    hersheysGradientAr, width: 500.0, height: 100.0),
+              ),
               Divider(),
               CircualrGradientButton(
                   cosmicFusionGradient,
