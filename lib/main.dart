@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_buttons/genres_page.dart';
 import 'package:gradient_buttons/info_page.dart';
 import 'package:gradient_buttons/intro_page.dart';
 import 'package:gradient_buttons/utils.dart';
@@ -9,12 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Gradient Buttons',
+      title: 'Gradient Screens',
       theme: appTheme(),
       builder: (BuildContext context, Widget child) {
         return appDirectionality(child);
       },
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       home: new MyHomePage(),
     );
   }
@@ -33,11 +34,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         body: new TabBarView(children: [
           IntroPage(),
-          InfoPage()
+          InfoPage(),
+          GenresPage(),
         ]),
       ),
     );

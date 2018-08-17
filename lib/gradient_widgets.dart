@@ -9,12 +9,13 @@ gradientTextStyle(TextStyle textWidget, Gradient gradient,
 }
 
 Widget _gradientContainer(
-    BuildContext context, Gradient gradient, double incHeightBy, Widget child) {
+    BuildContext context, Gradient gradient, double incHeightBy, double incWidthBy
+    , Widget child) {
   final ButtonThemeData buttonTheme =
       ButtonTheme.of(context).copyWith(padding: const EdgeInsets.all(0.0));
   return new Container(
     height: buttonTheme.height + incHeightBy,
-    width: buttonTheme.minWidth,
+    width: buttonTheme.minWidth + incWidthBy,
     decoration: BoxDecoration(gradient: gradient),
     child: Center(child: child),
   );
@@ -34,14 +35,15 @@ class CircualrGradientButton extends StatelessWidget {
     return FloatingActionButton(
       elevation: elevation,
       onPressed: () => callback,
-      child: _gradientContainer(context, gradient, 30.0, child),
+      child: _gradientContainer(context, gradient, 30.0, 0.0, child),
     );
   }
 }
 
 class GradientButton extends StatelessWidget {
   GradientButton(this.gradient, this.child, this.callback,
-      {this.shape, this.shapeRadius, this.textStyle, this.elevation = 2.0});
+      {this.shape, this.shapeRadius, this.textStyle, this.elevation = 2.0,
+      this.increaseHeightBy = 0.0, this.increaseWidthBy = 0.0});
 
   final Widget child;
   final Gradient gradient;
@@ -50,6 +52,8 @@ class GradientButton extends StatelessWidget {
   final BorderRadius shapeRadius;
   final TextStyle textStyle;
   final double elevation;
+  final double increaseHeightBy;
+  final double increaseWidthBy;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +72,7 @@ class GradientButton extends StatelessWidget {
       elevation: elevation,
       textStyle: textStyleCopy,
       onPressed: () => callback,
-      child: _gradientContainer(context, gradient, 0.0, child),
+      child: _gradientContainer(context, gradient, increaseHeightBy, increaseWidthBy, child),
     );
   }
 }

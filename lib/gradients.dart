@@ -11,6 +11,79 @@ var hotLinearGradient = LinearGradient(
     ],
   );
 
+  var serveGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xff485563),
+      Color(0xff485563),
+    ],
+  );
+
+  var aliGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xffff4b1f),
+      Color(0xff1fddff),
+    ],
+  );
+
+  var aliHussienGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xfff7ff00),
+      Color(0xffdb36a4),
+    ],
+  );
+
+  var backToFutureGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xffC02425),
+      Color(0xffF0CB35),
+    ],
+  );
+
+  var rainbowBlueGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xff00F260),
+      Color(0xff0575E6),
+    ],
+  );
+
+  var blushGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xffB24592),
+      Color(0xffF15F79),
+    ],
+  );
+
+  var byDesignGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xff009FFF),
+      Color(0xffec2F4B),
+    ],
+  );
+
+  var jShineGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: const <Color>[
+      Color(0xff12c2e9),
+      Color(0xffc471ed),
+      Color(0xfff64f59),
+    ],
+  );
+
   var hersheysGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
