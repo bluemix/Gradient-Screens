@@ -5,7 +5,7 @@ It shows gradients applied to buttons, texts and backgrounds.
 
 ![Gradient button and gradient background](art/intro_page.png)
 ![Gradient Floating Action Button](art/info_page.png)
-![Gradient buttons](art/intro_page.png)
+![Gradient buttons](art/genres_page.png)
 
 ## Flutter: Getting Started
 
