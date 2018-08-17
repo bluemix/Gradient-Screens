@@ -70,7 +70,7 @@ class IntroPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Text(
-                  'إستمتع بمجموعة واسعة من أفضل الأغاني',
+                  'Enjoy The Wide Range of The Best Songs',
                   style: gradientTextStyle(
                       new TextStyle(
                           fontSize: 50.0,
@@ -85,10 +85,12 @@ class IntroPage extends StatelessWidget {
               GradientButton(
                   hotLinearGradient,
                   Text(
-                    'إشتراك',
+                    'Subscribe',
                     style: TextStyle(fontSize: 18.0),
                   ),
-                  () => print('button pressed')),
+                  () => print('button pressed'),
+                  increaseWidthBy: 50.0,
+                  ),
               // Divider(),
               // CircualrGradientButton(
               //     hotLinearGradient,

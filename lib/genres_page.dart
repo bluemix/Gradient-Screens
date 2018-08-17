@@ -53,16 +53,31 @@ class GenresPage extends StatelessWidget {
             child: Column(
           children: <Widget>[
             Expanded(
-              child: Text('Hello'),
+              child: Center(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Pick your preffered music type',
+                    style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  ),
+                  Text(
+                    'Tab once on your favorite genres',
+                    style: TextStyle(color: Colors.grey, fontSize: 16.0),
+                  ),
+                ],
+              )),
             ),
             Expanded(
+              flex: 2,
                 child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: GridView.count(
                 crossAxisCount: 2,
                 shrinkWrap: true,
                 childAspectRatio: 4.0,
-                padding: const EdgeInsets.all(0.0),
+                padding: const EdgeInsets.all(15.0),
                 children: List.generate(buttons.length, (index) {
                   return Center(
                     child: buttons[index],
@@ -72,7 +87,12 @@ class GenresPage extends StatelessWidget {
             )),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 50.0),
-              child: GradientButton(backToFutureGradient, Text('NEXT'), () {}),
+              child: GradientButton(
+                backToFutureGradient,
+                Text('NEXT'),
+                () {},
+                increaseWidthBy: 75.0,
+              ),
             )
           ],
         )),

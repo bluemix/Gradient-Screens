@@ -61,7 +61,7 @@ class InfoPage extends StatelessWidget {
                     hersheysGradient, width: 400.0, height: 100.0),
               ),
               Text(
-                'اللي ما أعرف ترجمتها بالعربي',
+                'Struck it for a funny picture',
                 style: gradientTextStyle(
                     TextStyle(fontSize: 24.0, fontWeight: FontWeight.w100),
                     hersheysGradientAr, width: 500.0, height: 100.0),

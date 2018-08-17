@@ -12,7 +12,7 @@ ThemeData appTheme() {
 
 Directionality appDirectionality(Widget child) {
   return new Directionality(
-    textDirection: TextDirection.rtl,
+    textDirection: TextDirection.ltr,
     child: new Builder(
       builder: (BuildContext context) {
         return new MediaQuery(
