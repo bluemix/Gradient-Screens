@@ -8,9 +8,8 @@ gradientTextStyle(TextStyle textWidget, Gradient gradient,
   return textWidget.copyWith(foreground: Paint()..shader = textShader);
 }
 
-Widget _gradientContainer(
-    BuildContext context, Gradient gradient, double incHeightBy, double incWidthBy
-    , Widget child) {
+Widget _gradientContainer(BuildContext context, Gradient gradient,
+    double incHeightBy, double incWidthBy, Widget child) {
   final ButtonThemeData buttonTheme =
       ButtonTheme.of(context).copyWith(padding: const EdgeInsets.all(0.0));
   return new Container(
@@ -21,9 +20,12 @@ Widget _gradientContainer(
   );
 }
 
-class CircualrGradientButton extends StatelessWidget {
-  CircualrGradientButton(this.gradient, this.child, this.callback,
-      {this.elevation = 2.0});
+class CircularGradientButton extends StatelessWidget {
+  CircularGradientButton(
+      {@required this.gradient,
+      @required this.child,
+      @required this.callback,
+      this.elevation = 2.0});
 
   final Widget child;
   final Gradient gradient;
@@ -34,16 +36,23 @@ class CircualrGradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       elevation: elevation,
-      onPressed: () => callback,
+      onPressed: callback,
       child: _gradientContainer(context, gradient, 30.0, 0.0, child),
     );
   }
 }
 
 class GradientButton extends StatelessWidget {
-  GradientButton(this.gradient, this.child, this.callback,
-      {this.shape, this.shapeRadius, this.textStyle, this.elevation = 2.0,
-      this.increaseHeightBy = 0.0, this.increaseWidthBy = 0.0});
+  GradientButton(
+      {@required this.gradient,
+      @required this.child,
+      @required this.callback,
+      this.shape,
+      this.shapeRadius,
+      this.textStyle,
+      this.elevation = 5.0,
+      this.increaseHeightBy = 0.0,
+      this.increaseWidthBy = 0.0});
 
   final Widget child;
   final Gradient gradient;
@@ -71,8 +80,9 @@ class GradientButton extends StatelessWidget {
       shape: shapeCopy,
       elevation: elevation,
       textStyle: textStyleCopy,
-      onPressed: () => callback,
-      child: _gradientContainer(context, gradient, increaseHeightBy, increaseWidthBy, child),
+      onPressed: callback,
+      child: _gradientContainer(
+          context, gradient, increaseHeightBy, increaseWidthBy, child),
     );
   }
 }

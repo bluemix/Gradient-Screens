@@ -83,23 +83,14 @@ class IntroPage extends StatelessWidget {
               ),
               Divider(),
               GradientButton(
-                  hotLinearGradient,
-                  Text(
+                  gradient: hotLinearGradient,
+                  child: Text(
                     'Subscribe',
                     style: TextStyle(fontSize: 18.0),
                   ),
-                  () => print('button pressed'),
+                  callback: () => print('button pressed'),
                   increaseWidthBy: 50.0,
                   ),
-              // Divider(),
-              // CircualrGradientButton(
-              //     hotLinearGradient,
-              //     Icon(
-              //       Icons.favorite,
-              //       size: 30.0,
-              //       color: Colors.white,
-              //     ),
-              //     () => print(''))
             ],
           ),
         ),

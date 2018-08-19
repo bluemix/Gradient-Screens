@@ -8,9 +8,9 @@ class GenresPage extends StatelessWidget {
 
   GradientButton buildGradientButton(Gradient gradient, String text) {
     return GradientButton(
-      gradient,
-      Text(text),
-      () {},
+      gradient: gradient,
+      child: Text(text),
+      callback: () {},
       increaseWidthBy: increaseWidthBy,
     );
   }
@@ -88,9 +88,9 @@ class GenresPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 50.0),
               child: GradientButton(
-                backToFutureGradient,
-                Text('NEXT'),
-                () {},
+                gradient: backToFutureGradient,
+                child: Text('NEXT'),
+                callback: () {},
                 increaseWidthBy: 75.0,
               ),
             )

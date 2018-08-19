@@ -67,14 +67,14 @@ class InfoPage extends StatelessWidget {
                     hersheysGradientAr, width: 500.0, height: 100.0),
               ),
               Divider(),
-              CircualrGradientButton(
-                  cosmicFusionGradient,
-                  Icon(
+              CircularGradientButton(
+                  gradient: cosmicFusionGradient,
+                  child: Icon(
                     Icons.favorite,
                     size: 28.0,
                     color: Colors.white,
                   ),
-                  () => print(''))
+                  callback: () => print(''))
             ],
           ),
         ),
