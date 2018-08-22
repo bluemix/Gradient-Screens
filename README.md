@@ -9,8 +9,8 @@ It shows gradients applied to buttons, texts and backgrounds.
 ![Gradient half circle](art/login_page.png)
 
 ### Inspirations
-* Genres page: [Here](https://www.designspiration.net/save/5597545571572/)
-* Login page: [Here](https://www.tenniswood.co.uk/post/160767831482)
+* [Genres page](https://www.designspiration.net/save/5597545571572/)
+* [Login page](https://www.tenniswood.co.uk/post/160767831482)
 
 ## Flutter: Getting Started
 
