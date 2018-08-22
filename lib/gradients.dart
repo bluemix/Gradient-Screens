@@ -2,6 +2,14 @@
 
   import 'package:flutter/widgets.dart';
 
+var whiteGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: const <Color>[
+      Color(0xffffffff),
+      Color(0xffffffff),
+    ],
+  );
 var hotLinearGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -10,7 +18,14 @@ var hotLinearGradient = LinearGradient(
       Color(0xffF9B16E), // <color name="summer_sky">#2BB2DF</color>
     ],
   );
-
+    var blueshGradient = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: const <Color>[
+        Color(0xff0060C5), // <color name="summer_sky">#2BB2DF</color>
+        Color(0xff18BBFA), // <color name="bleu_de_france">#388DE3</color>
+      ],
+    );
   var serveGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

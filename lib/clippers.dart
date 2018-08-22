@@ -90,3 +90,17 @@ class BottomWaveClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
+
+class PathClipper extends CustomClipper<Path> {
+
+  PathClipper({this.path});
+  final Path path;
+
+  @override
+  Path getClip(Size size) {
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}

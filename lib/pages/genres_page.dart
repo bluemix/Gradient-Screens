@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:gradient_buttons/gradient_widgets.dart';
 import 'package:gradient_buttons/gradients.dart';
 
+
+// inspired from https://www.designspiration.net/save/5597545571572/
 class GenresPage extends StatelessWidget {
   final double increaseWidthBy = 50.0;
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_buttons/genres_page.dart';
-import 'package:gradient_buttons/info_page.dart';
-import 'package:gradient_buttons/intro_page.dart';
+import 'package:gradient_buttons/pages/genres_page.dart';
+import 'package:gradient_buttons/pages/info_page.dart';
+import 'package:gradient_buttons/pages/intro_page.dart';
+import 'package:gradient_buttons/pages/login_page.dart';
 import 'package:gradient_buttons/utils.dart';
 
 void main() => runApp(new MyApp());
@@ -34,12 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         body: new TabBarView(children: [
           IntroPage(),
           InfoPage(),
           GenresPage(),
+          LoginPage(),
         ]),
       ),
     );
