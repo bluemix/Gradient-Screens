@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_buttons/pages/be_kind_page.dart';
 import 'package:gradient_buttons/pages/genres_page.dart';
 import 'package:gradient_buttons/pages/info_page.dart';
 import 'package:gradient_buttons/pages/intro_page.dart';
@@ -35,9 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         body: new TabBarView(children: [
+          BeKindPage(),
           IntroPage(),
           InfoPage(),
           GenresPage(),

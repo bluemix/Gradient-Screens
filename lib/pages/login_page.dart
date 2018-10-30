@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gradient_buttons/gradient_widgets.dart';
-import 'package:gradient_buttons/gradients.dart';
+import 'package:gradient_buttons/text_utils.dart';
 import 'package:gradient_buttons/clippers.dart';
+import 'package:gradient_widgets/gradient_widgets.dart';
 import 'package:path_parsing/path_parsing.dart';
 
 // inspired from https://www.tenniswood.co.uk/post/160767831482
@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
     var paint = new Paint()
       ..strokeWidth = 45.0
       ..shader =
-          blueshGradient.createShader(Rect.fromLTWH(0.0, 0.0, 100.0, 300.0))
+      Gradients.blush.createShader(Rect.fromLTWH(0.0, 0.0, 100.0, 300.0))
       ..style = PaintingStyle.stroke;
 
     return Transform.scale(
@@ -51,7 +51,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GradientButton(
-              gradient: whiteGradient,
+              gradient: Gradients.haze,
               callback: () => {},
               textStyle: TextStyle(color: Colors.black, fontSize: 16.0),
               shapeRadius: BorderRadius.circular(5.0),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gradient_buttons/gradient_widgets.dart';
-import 'package:gradient_buttons/gradients.dart';
+import 'package:gradient_widgets/gradient_widgets.dart';
 
 
 // inspired from https://www.designspiration.net/save/5597545571572/
@@ -11,7 +10,7 @@ class GenresPage extends StatelessWidget {
   GradientButton buildGradientButton(Gradient gradient, String text) {
     return GradientButton(
       gradient: gradient,
-      child: Text(text),
+      child: Text(text, style: TextStyle(fontSize: 20.0),),
       callback: () {},
       increaseWidthBy: increaseWidthBy,
     );
@@ -20,15 +19,15 @@ class GenresPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<GradientButton> buttons = [];
-    buttons.add(buildGradientButton(serveGradient, 'INDIE ROCK'));
-    buttons.add(buildGradientButton(blushGradient, 'POP'));
-    buttons.add(buildGradientButton(serveGradient, 'FOLK'));
-    buttons.add(buildGradientButton(serveGradient, 'ROCK'));
-    buttons.add(buildGradientButton(byDesignGradient, 'BLUES'));
-    buttons.add(buildGradientButton(rainbowBlueGradient, 'JAZZ'));
-    buttons.add(buildGradientButton(serveGradient, 'COUNTRY'));
-    buttons.add(buildGradientButton(aliGradient, 'POPULAR'));
-    buttons.add(buildGradientButton(serveGradient, 'TECNHO'));
+    buttons.add(buildGradientButton(Gradients.serve, 'INDIE ROCK'));
+    buttons.add(buildGradientButton(Gradients.blush, 'POP'));
+    buttons.add(buildGradientButton(Gradients.serve, 'FOLK'));
+    buttons.add(buildGradientButton(Gradients.serve, 'ROCK'));
+    buttons.add(buildGradientButton(Gradients.byDesign, 'BLUES'));
+    buttons.add(buildGradientButton(Gradients.rainbowBlue, 'JAZZ'));
+    buttons.add(buildGradientButton(Gradients.serve, 'COUNTRY'));
+    buttons.add(buildGradientButton(Gradients.ali, 'POPULAR'));
+    buttons.add(buildGradientButton(Gradients.serve, 'TECNHO'));
 
     // buttons.add(GradientButton(serveGradient, Text('ALTERNATIVE'), (){}));
 
@@ -90,8 +89,8 @@ class GenresPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 50.0),
               child: GradientButton(
-                gradient: backToFutureGradient,
-                child: Text('NEXT'),
+                gradient: Gradients.backToFuture,
+                child: Text('NEXT', style: TextStyle(fontSize: 22.0),),
                 callback: () {},
                 increaseWidthBy: 75.0,
               ),

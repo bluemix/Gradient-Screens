@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gradient_buttons/gradient_widgets.dart';
-import 'package:gradient_buttons/gradients.dart';
+import 'package:gradient_widgets/gradient_widgets.dart';
 
 class InfoPage extends StatelessWidget {
   @override
@@ -54,21 +53,22 @@ class InfoPage extends StatelessWidget {
                     margin: const EdgeInsets.all(5.0),
                     child: _buildImage(),
                   )),
-              Text(
+              GradientText(
                 'STRIKE A POSE',
-                style: gradientTextStyle(
-                    TextStyle(fontSize: 40.0, fontWeight: FontWeight.w100),
-                    hersheysGradient, width: 400.0, height: 100.0),
+                gradient: Gradients.hersheys,
+                shaderRect: Rect.fromLTWH(0.0, 0.0, 50.0, 50.0),
+                style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w100),
               ),
-              Text(
+              GradientText(
                 'Struck it for a funny picture',
-                style: gradientTextStyle(
-                    TextStyle(fontSize: 24.0, fontWeight: FontWeight.w100),
-                    hersheysGradientAr, width: 500.0, height: 100.0),
+                gradient: Gradients.hersheys..colors.reversed,
+                shaderRect: Rect.fromLTWH(0.0, 0.0, 50.0, 50.0),
+                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w100),
               ),
+
               Divider(),
               CircularGradientButton(
-                  gradient: cosmicFusionGradient,
+                  gradient: Gradients.cosmicFusion,
                   child: Icon(
                     Icons.favorite,
                     size: 28.0,

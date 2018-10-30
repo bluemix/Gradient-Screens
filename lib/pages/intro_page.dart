@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gradient_buttons/gradient_widgets.dart';
-import 'package:gradient_buttons/gradients.dart';
+
 import 'package:gradient_buttons/clippers.dart';
+import 'package:gradient_widgets/gradient_widgets.dart';
 
 class IntroPage extends StatelessWidget {
   BoxDecoration gradientBack() {
@@ -45,7 +45,7 @@ class IntroPage extends StatelessWidget {
                         padding: const EdgeInsets.all(20.0),
                         decoration: new BoxDecoration(
                             shape: BoxShape.rectangle,
-                            gradient: hotLinearGradient),
+                            gradient: Gradients.hotLinear),
                       ),
                     ),
                   ],
@@ -69,24 +69,24 @@ class IntroPage extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Text(
+                child:
+                GradientText(
                   'Enjoy The Wide Range of The Best Songs',
-                  style: gradientTextStyle(
-                      new TextStyle(
-                          fontSize: 50.0,
-                          fontFamily: 'GE SS Bold',
-                          fontWeight: FontWeight.bold),
-                      coldLinearGradient2,
-                      height: 100.0,
-                      width: 1000.0),
+                  gradient: Gradients.coldLinear,
+                  shaderRect: Rect.fromLTWH(0.0, 0.0, 200.0, 100.0),
+                  style: TextStyle(
+                      fontSize: 54.0,
+                      fontFamily: 'GE SS',
+                      fontWeight: FontWeight.w900),
                 ),
               ),
               Divider(),
               GradientButton(
-                  gradient: hotLinearGradient,
+                  gradient: Gradients.hotLinear,
                   child: Text(
                     'Subscribe',
-                    style: TextStyle(fontSize: 18.0),
+
+                    style: TextStyle(fontSize: 22.0),
                   ),
                   callback: () => print('button pressed'),
                   increaseWidthBy: 50.0,
